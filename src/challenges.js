@@ -47,7 +47,7 @@ function footballPoints(wins, ties) {
 // Desafio 6
 function highestCount(numbers) {
   // Referencia para entendimento e utilização do reduce e Math.max: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/max
-  let higherNum = numbers.reduce(function (a, b) { //acumulador (a) e valor (b)
+  let higherNum = numbers.reduce(function (a, b) {
     return Math.max(a, b);
   });
   let qtdHigher = 0;
