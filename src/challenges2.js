@@ -19,13 +19,6 @@ function techList(tech, namePeople) {
 // Desafio 11
 function generatePhoneNumber() {
   // seu código aqui
-//   let message = '';
-
-//   if (numberPhone.length !== 11) {
-//     message = 'Array com tamanho incorreto.';
-//   }
-//   return message;
-// }
 }
 
 // Desafio 12
@@ -41,9 +34,25 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate(cup) {
+function hydrate(cups) {
   // seu código aqui
+  // referência para expressão \d+: https://stackoverflow.com/questions/1623221/how-to-find-a-number-in-a-string-using-javascript
+  // referência para utilização do match(): https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match
+  // referência para utilização parseInt: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt
+  let numbers = /\d+/g;
+  let found = cups.match(numbers);
+  let result = 0;
 
+  for (let index = 0; index < found.length; index += 1) {
+    result += parseInt(found[index], 10);
+  }
+
+  if (result === 1) {
+    result += ' copo de água';
+  } else {
+    result += ' copos de água';
+  }
+  return result;
 }
 
 module.exports = {
