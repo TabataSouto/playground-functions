@@ -17,20 +17,26 @@ function techList(tech, namePeople) {
 }
 
 // Desafio 11
-function generatePhoneNumber() {
+function generatePhoneNumber(phoneNumber) {
   // seu código aqui
+  let message = '';
+
+  if (phoneNumber.length > 11) {
+    message = 'Array com tamanho incorreto.';
+  }
+  return message;
 }
 
 // Desafio 12
 function triangleCheck(lineA, lineB, lineC) {
   // seu código aqui
-  let subAB = Math.abs(lineA - lineB);
-  let subAC = Math.abs(lineA - lineC);
+
   let subBC = Math.abs(lineB - lineC);
 
-  if (lineA > (lineB + lineC) || lineB > (lineA + lineC) || lineC > (lineA + lineB)) return false;
-  if (lineA < subBC || lineB < subAC || lineC < subAB) return false;
-  return true;
+  if (lineA < (lineB + lineC) && lineA > subBC) {
+    return true;
+  }
+  return false;
 }
 
 // Desafio 13

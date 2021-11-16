@@ -6,6 +6,7 @@
 //   if (arrayPhone.length !== 11) {
 //     message = 'Array com tamanho incorreto.';
 //   }
+
 //   // parte 2
 //   for (let i = 0; i < arrayPhone.length; i += 1) {
 //     let repeatFather = 0;
@@ -23,27 +24,30 @@
 //   return message;
 // }
 
-// console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
-
-function hydrate(cups) {
+function generatePhoneNumber(phoneNumber) {
   // seu código aqui
-  // referência para expressão \d+: https://stackoverflow.com/questions/1623221/how-to-find-a-number-in-a-string-using-javascript
-  // referência para utilização do match(): https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match
-  // referência para utilização parseInt: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt
-  let numbers = /\d+/g;
-  let found = cups.match(numbers);
-  let result = 0;
+  let message = '';
 
-  for (let index = 0; index < found.length; index += 1) {
-    result += parseInt(found[index], 10);
+  if (phoneNumber.length !== 11) {
+    message = 'Array com tamanho incorreto.';
   }
-
-  if (result === 1) {
-    result += ' copo de agua';
-  } else {
-    result += ' copos de agua';
-  }
-  return result;
+  return message;
 }
 
-console.log(hydrate('1 copo de cerveja'));
+console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
+
+
+function triangleCheck(lineA, lineB, lineC) {
+  // seu código aqui
+  let subAB = Math.abs(lineA - lineB);
+  let subAC = Math.abs(lineA - lineC);
+  let subBC = Math.abs(lineB - lineC);
+
+  if (lineA > (lineB + lineC) || lineB > (lineA + lineC) || lineC > (lineA + lineB)) {
+    return false;
+  }
+  if (lineA < subBC || lineB < subAC || lineC < subAB) {
+    return false;
+  }
+  return true;
+}
