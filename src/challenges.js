@@ -32,21 +32,14 @@ function concatName(arrayName) {
 // Desafio 5
 function footballPoints(wins, ties) {
   // seu código aqui
-  let pontos = 0;
-  if (wins === 14 && ties === 8) {
-    pontos = 50;
-    return pontos;
-  }
-  if (wins === 1 && ties === 2) {
-    pontos = 5;
-    return pontos;
-  }
-  return pontos;
+  let totalPoints = (wins * 3) + (ties * 1);
+  return totalPoints;
 }
 
 // Desafio 6
 function highestCount(numbers) {
   // Referencia para entendimento e utilização do reduce e Math.max: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+  // reduce procura pelo maior valor e o math max retorn o maior valor encontado
   let higherNum = numbers.reduce(function (a, b) {
     return Math.max(a, b);
   });
