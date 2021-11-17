@@ -38,11 +38,9 @@ function footballPoints(wins, ties) {
 
 // Desafio 6
 function highestCount(numbers) {
-  // Referencia para entendimento e utilização do reduce e Math.max: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/max
-  // reduce procura pelo maior valor e o math max retorn o maior valor encontado
-  let higherNum = numbers.reduce(function (a, b) {
-    return Math.max(a, b);
-  });
+  // Referencia para entendimento e utilização do spread operator https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+  // o spread operator trás o maior número contido dentro de um array
+  let higherNum = Math.max(...numbers);
   let qtdHigher = 0;
   for (let index = 0; index < numbers.length; index += 1) {
     if (numbers[index] === higherNum) {

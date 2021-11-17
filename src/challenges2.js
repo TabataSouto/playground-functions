@@ -19,12 +19,14 @@ function techList(tech, namePeople) {
 // Desafio 11
 function generatePhoneNumber(phoneNumber) {
   // seu código aqui
-  let message = '';
-
-  if (phoneNumber.length > 11) {
-    message = 'Array com tamanho incorreto.';
+  if (phoneNumber.length !== 11) {
+    return 'Array com tamanho incorreto.';
   }
-  return message;
+  for (let number of phoneNumber) {
+    if (number < 0 || number > 9) {
+      return 'não é possível gerar um número de telefone com esses valores';
+    }
+  }
 }
 
 // Desafio 12
@@ -42,15 +44,15 @@ function triangleCheck(lineA, lineB, lineC) {
 // Desafio 13
 function hydrate(cups) {
   // seu código aqui
-  // referência para expressão \d+: https://stackoverflow.com/questions/1623221/how-to-find-a-number-in-a-string-using-javascript
-  // referência para utilização do match(): https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match
-  // referência para utilização parseInt: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt
+  // referência para expressão regular \d+ que orresponde a um ou mais dígitos decimais.: https://stackoverflow.com/questions/1623221/how-to-find-a-number-in-a-string-using-javascript
+  // referência para utilização do match() retorna uma string com apenas os números encontrados na string através da expressão regular: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/match
+  // referência para utilização parseInt para converter a string em um número inteiro: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt
   let numbers = /\d+/g;
   let found = cups.match(numbers);
   let result = 0;
 
   for (let index = 0; index < found.length; index += 1) {
-    result += parseInt(found[index], 10);
+    result += parseInt(found[index], 10); // o 10 é a base decimal, pois o comando precisa da string e da base
   }
 
   if (result === 1) {
