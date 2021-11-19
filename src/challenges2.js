@@ -17,16 +17,36 @@ function techList(tech, namePeople) {
 }
 
 // Desafio 11
-function generatePhoneNumber(phoneNumber) {
-  // seu código aqui
-  if (phoneNumber.length !== 11) {
+function generatePhoneNumber(phoneNumbers) {
+  // seu código aqui.
+  // Referência ajuda dos colegar Kamila Hydalgo, @SrTonn, Kesley Muniz e Polyana Sousa para finalização do desenvolvimento do código.
+  let soma = 0;
+  let phoneNumber = '';
+  let DDD = phoneNumbers.slice(0, 2).join('');
+  let firstDigits = phoneNumbers.slice(2, 7).join('');
+  let lastDigits = phoneNumbers.slice(7).join('');
+  // por ser os últimos número não preciso dizer a qnt final
+  for (let index = 0; index < phoneNumbers.length; index += 1) {
+    for (let index2 = 0; index2 < phoneNumbers.length; index2 += 1) {
+      if (phoneNumbers[index] === phoneNumbers[index2]) {
+        soma += 1;
+      }
+    }
+    if (soma >= 3) {
+      return 'não é possível gerar um número de telefone com esses valores';
+    }
+    soma = 0;
+  }
+  if (phoneNumbers.length !== 11) {
     return 'Array com tamanho incorreto.';
   }
-  for (let number of phoneNumber) {
+  for (let number of phoneNumbers) {
     if (number < 0 || number > 9) {
       return 'não é possível gerar um número de telefone com esses valores';
     }
   }
+  phoneNumber = '(' + DDD + ') ' + firstDigits + '-' + lastDigits;
+  return phoneNumber;
 }
 
 // Desafio 12
